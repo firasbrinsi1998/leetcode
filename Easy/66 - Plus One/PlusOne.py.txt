@@ -1,0 +1,17 @@
+class Solution:
+    def plusOne(self, digits):
+        n = len(digits)        
+        if n > 100 or (digits[0] == 0 and n>1):
+            return None        
+        for digit in digits:
+            if digit < 0 or digit > 9:
+                return None        
+        carry = 1
+        for i in range(n - 1, -1, -1):
+            sum = digits[i] + carry
+            digits[i] = sum % 10  
+            carry = sum // 10  
+        if carry:
+            digits.insert(0, carry)
+            
+        return digits
